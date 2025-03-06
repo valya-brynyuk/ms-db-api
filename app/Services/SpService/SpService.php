@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 class SpService implements SpServiceInterface
 {
     public function spGetClientTransactionDetailsbyEmail(string $email) {
-        return DB::select('exec spGetClientTransactionDetailsbyEmail @email=?', [$email]);
+        return DB::select('exec spGetClientTransactionDetailsByEmail @email=?', [$email]);
     }
 
     public function spGetBrokerListing(string $email) {
@@ -20,5 +20,9 @@ class SpService implements SpServiceInterface
 
     public function spGetMatterHistoryWNWeb(string $matterId) {
         return DB::select('exec spGetMatterHistoryWNWeb @MatterID=?', [$matterId]);
+    }
+
+    public function spGetMatterMilestoneDatesWNWeb(string $matterId) {
+        return DB::select('exec spGetMatterMilestoneDatesWNWeb @MatterID=?', [$matterId]);
     }
 }

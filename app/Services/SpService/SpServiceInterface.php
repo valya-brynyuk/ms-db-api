@@ -11,4 +11,6 @@ interface SpServiceInterface
     public function spGetMattersDetailsWNWeb(string $matterId);
 
     public function spGetMatterHistoryWNWeb(string $matterId);
+
+    public function spGetMatterMilestoneDatesWNWeb(string $matterId);
 }

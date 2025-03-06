@@ -17,4 +17,9 @@ class MatterController extends Controller
     {
         return response()->json($spService->spGetMatterHistoryWNWeb($matterId));
     }
+
+    public function milestoneDates(SpServiceInterface $spService, string $matterId)
+    {
+        return response()->json($spService->spGetMatterMilestoneDatesWNWeb($matterId));
+    }
 }
