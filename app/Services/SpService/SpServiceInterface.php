@@ -13,4 +13,6 @@ interface SpServiceInterface
     public function spGetMatterHistoryWNWeb(string $matterId);
 
     public function spGetMatterMilestoneDatesWNWeb(string $matterId);
+
+    public function spGetCheckBrokerUser(string $email,string $password);
 }

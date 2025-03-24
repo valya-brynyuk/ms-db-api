@@ -25,4 +25,8 @@ class SpService implements SpServiceInterface
     public function spGetMatterMilestoneDatesWNWeb(string $matterId) {
         return DB::select('exec spGetMatterMilestoneDatesWNWeb @MatterID=?', [$matterId]);
     }
+
+    public function spGetCheckBrokerUser(string $email,string $password) {
+        return DB::select('exec spGetCheckBrokerUser @UserEmail=?, @UserP=?', [$email, $password]);
+    }
 }

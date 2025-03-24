@@ -14,6 +14,7 @@ Route::get('/user', function (Request $request) {
 Route::name('v1.')->prefix('v1')->group(function () {
     Route::name('broker.')->prefix('broker')->group(function () {
         Route::get('/', [BrokerController::class, 'index'])->name('index');
+        Route::post('/check-user', [BrokerController::class, 'checkUser'])->name('checkUser');
     });
 
     Route::name('matter.')->prefix('matter')->group(function () {

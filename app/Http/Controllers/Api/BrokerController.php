@@ -14,4 +14,14 @@ class BrokerController extends Controller
 
         return response()->json($spService->spGetBrokerListing($payload['email']));
     }
+
+    public function checkUser(SpServiceInterface $spService, Request $request)
+    {
+        $payload = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        return response()->json($spService->spGetCheckBrokerUser($payload['email'], $payload['password']));
+    }
 }
