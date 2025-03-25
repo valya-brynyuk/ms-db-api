@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Services\SpService\SpServiceInterface;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class BrokerController extends Controller
 {
@@ -22,6 +23,14 @@ class BrokerController extends Controller
             'password' => 'required',
         ]);
 
-        return response()->json($spService->spGetCheckBrokerUser($payload['email'], $payload['password']));
+        $userExistsResponse = $spService->spGetCheckBrokerUser($payload['email'], $payload['password']);
+        $userExists = $userExistsResponse[0]['UserExists'] ?? 0;
+        if (!$userExists) {
+            return response()->json([], Response::HTTP_UNAUTHORIZED);
+        }
+
+        return response()->json([
+
+        ]);
     }
 }
