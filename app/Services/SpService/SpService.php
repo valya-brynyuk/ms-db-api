@@ -27,6 +27,6 @@ class SpService implements SpServiceInterface
     }
 
     public function spGetCheckBrokerUser(string $email,string $password) {
-        return DB::select('exec spGetCheckBrokerUser @UserEmail=?, @UserP=?', [$email, $password]);
+        return DB::select('exec spCheckBrokerUserWNWeb @UserEmail=?, @UserP=?', [$email, $password]);
     }
 }
