@@ -13,6 +13,11 @@ class MatterController extends Controller
         return response()->json($spService->spGetMattersDetailsWNWeb($matterId));
     }
 
+    public function singleDetails(SpServiceInterface $spService, string $matterId)
+    {
+        return response()->json($spService->spGetMatterDetailsWNWeb($matterId));
+    }
+
     public function matterHistory(SpServiceInterface $spService, string $matterId)
     {
         return response()->json($spService->spGetMatterHistoryWNWeb($matterId));

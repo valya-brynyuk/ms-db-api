@@ -18,6 +18,10 @@ class SpService implements SpServiceInterface
         return DB::select('exec spGetMattersDetailsWNWeb @MatterID=?', [$matterId]);
     }
 
+    public function spGetMatterDetailsWNWeb(string $matterId) {
+        return DB::select('exec spGetMatterDetailsWNWeb @MatterID=?', [$matterId]);
+    }
+
     public function spGetMatterHistoryWNWeb(string $matterId) {
         return DB::select('exec spGetMatterHistoryWNWeb @MatterID=?', [$matterId]);
     }

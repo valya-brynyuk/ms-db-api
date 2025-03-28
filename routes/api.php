@@ -19,6 +19,7 @@ Route::name('v1.')->prefix('v1')->group(function () {
 
     Route::name('matter.')->prefix('matter')->group(function () {
         Route::get('/{matterId}', [MatterController::class, 'matterDetails'])->name('details');
+        Route::get('/{matterId}/single', [MatterController::class, 'singleDetails'])->name('singleDetails');
         Route::get('/{matterId}/history', [MatterController::class, 'matterHistory'])->name('history');
         Route::get('/{matterId}/milestone-dates', [MatterController::class, 'milestoneDates'])->name('milestoneDates');
     });
