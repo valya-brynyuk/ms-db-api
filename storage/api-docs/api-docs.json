@@ -1,0 +1,523 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Documentation API",
+        "description": "Documentation for API.",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/broker": {
+            "get": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Get list of brokers by email",
+                "operationId": "a47627622ea651354f4b33e96f998fbc",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "Broker email",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "email"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "MatterNumber": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "MatterDescription": {
+                                                "type": "string",
+                                                "example": "Іван"
+                                            },
+                                            "Client": {
+                                                "type": "string",
+                                                "example": "ivan@example.com"
+                                            },
+                                            "MatterOpened": {
+                                                "type": "string",
+                                                "example": "ivan@example.com"
+                                            },
+                                            "CaseType": {
+                                                "type": "string",
+                                                "example": "ivan@example.com"
+                                            },
+                                            "TitleDeedsReceived": {
+                                                "type": "string",
+                                                "example": "ivan@example.com"
+                                            },
+                                            "MortgageOfferReceived": {
+                                                "type": "string",
+                                                "example": "ivan@example.com"
+                                            },
+                                            "MatterCompleted": {
+                                                "type": "string",
+                                                "example": "ivan@example.com"
+                                            },
+                                            "MatterCancelled": {
+                                                "type": "string",
+                                                "example": "ivan@example.com"
+                                            },
+                                            "CaseHandler": {
+                                                "type": "string",
+                                                "example": "ivan@example.com"
+                                            },
+                                            "Progress": {
+                                                "type": "string",
+                                                "example": "ivan@example.com"
+                                            },
+                                            "AddText1": {
+                                                "type": "string",
+                                                "example": "ivan@example.com"
+                                            },
+                                            "AddText2": {
+                                                "type": "string",
+                                                "example": "ivan@example.com"
+                                            },
+                                            "AddText3": {
+                                                "type": "string",
+                                                "example": "ivan@example.com"
+                                            },
+                                            "AddDate1": {
+                                                "type": "string",
+                                                "example": "ivan@example.com"
+                                            },
+                                            "AddDate2": {
+                                                "type": "string",
+                                                "example": "ivan@example.com"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/broker/check-user": {
+            "post": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Check if user exists",
+                "operationId": "c9dd64e13067e286e0e4abbbc1cfc0d3",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "email"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Evan"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "evan@example.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "12345678"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/matter/{matterId}": {
+            "get": {
+                "tags": [
+                    "Matter"
+                ],
+                "summary": "Get details by matter ID",
+                "operationId": "1d0f941cdc8e1faae314b4cbff1016d5",
+                "parameters": [
+                    {
+                        "name": "matterId",
+                        "in": "path",
+                        "description": "Matter ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "MatterNumber": {
+                                                "type": "string",
+                                                "example": "331491"
+                                            },
+                                            "MatterDesc": {
+                                                "type": "string",
+                                                "example": "Purchase of 22 PR AZURE TEST, Bangor"
+                                            },
+                                            "MatterOpenedDate": {
+                                                "type": "string",
+                                                "example": "2017-09-21"
+                                            },
+                                            "CaseHandler": {
+                                                "type": "string",
+                                                "example": "ASUMMERS"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/matter/{matterId}/single": {
+            "get": {
+                "tags": [
+                    "Matter"
+                ],
+                "summary": "Get single matter by Id",
+                "operationId": "8841ab11ff7397beffc1644787219a99",
+                "parameters": [
+                    {
+                        "name": "matterId",
+                        "in": "path",
+                        "description": "Matter ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "MatterNumber": {
+                                                "type": "string",
+                                                "example": "331491"
+                                            },
+                                            "MatterDesc": {
+                                                "type": "string",
+                                                "example": "Purchase of 22 PR AZURE TEST, Bangor"
+                                            },
+                                            "MatterOpenedDate": {
+                                                "type": "string",
+                                                "example": "2017-09-21"
+                                            },
+                                            "CaseHandler": {
+                                                "type": "string",
+                                                "example": "ASUMMERS"
+                                            },
+                                            "CaseHandlerName": {
+                                                "type": "string",
+                                                "example": "Adele Summers"
+                                            },
+                                            "CaseHandlerTel": {
+                                                "type": "string",
+                                                "example": "028 9032 1234"
+                                            },
+                                            "CaseHandlerPhotograph": {
+                                                "type": "string",
+                                                "example": "aa...bb"
+                                            },
+                                            "CaseHandlerEmail": {
+                                                "type": "string",
+                                                "example": "ASummers@wilson-nesbitt.co.uk"
+                                            },
+                                            "Client": {
+                                                "type": "string",
+                                                "example": "Mr Alex Bittles and Mrs Jane Bloggs"
+                                            },
+                                            "Progress": {
+                                                "type": "string",
+                                                "example": "80.0"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/matter/{matterId}/history": {
+            "get": {
+                "tags": [
+                    "Matter"
+                ],
+                "summary": "Get matter history by Id",
+                "operationId": "b1897cf3401d5a5cc98f2262cfc081f6",
+                "parameters": [
+                    {
+                        "name": "matterId",
+                        "in": "path",
+                        "description": "Matter ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "HistoryDate": {
+                                                "type": "string",
+                                                "example": "2024-10-24 15:18:48.000"
+                                            },
+                                            "HistoryDesc": {
+                                                "type": "string",
+                                                "example": "File in BOX Reference: BAN-2024-CON-111"
+                                            },
+                                            "HistoryNotes": {
+                                                "type": "string",
+                                                "example": ""
+                                            },
+                                            "HistoryCategory": {
+                                                "type": "string",
+                                                "example": ""
+                                            },
+                                            "HistoryID": {
+                                                "type": "string",
+                                                "example": "21779964"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/matter/{matterId}/milestone-dates": {
+            "get": {
+                "tags": [
+                    "Matter"
+                ],
+                "summary": "Get matter milestones dates by Id",
+                "operationId": "5aea4a5c047d52b9a53396e23ef7e6f7",
+                "parameters": [
+                    {
+                        "name": "matterId",
+                        "in": "path",
+                        "description": "Matter ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "Milestone": {
+                                                "type": "string",
+                                                "example": "Instructions Confirmed by Client"
+                                            },
+                                            "CompletedDate": {
+                                                "type": "string",
+                                                "example": "2022-08-08"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/transaction/details": {
+            "get": {
+                "tags": [
+                    "Transaction"
+                ],
+                "summary": "Get transactions by email",
+                "operationId": "f942e12dd5b5f65be1e73f47c39e9428",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "Email",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "email"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "PortalID": {
+                                                "type": "string",
+                                                "example": "10726"
+                                            },
+                                            "UsernameEmail": {
+                                                "type": "string",
+                                                "example": "iancreightoncr@gmail.com"
+                                            },
+                                            "ClientName": {
+                                                "type": "string",
+                                                "example": "Adele Summers"
+                                            },
+                                            "TransactionType": {
+                                                "type": "string",
+                                                "example": "Purchase"
+                                            },
+                                            "PropertyValue": {
+                                                "type": "string",
+                                                "example": "5000000"
+                                            },
+                                            "BaseFee": {
+                                                "type": "string",
+                                                "example": "27480"
+                                            },
+                                            "TotalFee": {
+                                                "type": "string",
+                                                "example": "542170"
+                                            },
+                                            "QuoteGeneratedDate": {
+                                                "type": "string",
+                                                "example": "2025-03-27"
+                                            },
+                                            "InstructedFlag": {
+                                                "type": "string",
+                                                "example": "0"
+                                            },
+                                            "InstructedDate": {
+                                                "type": "string",
+                                                "example": "null"
+                                            },
+                                            "InstructedMatterNum": {
+                                                "type": "string",
+                                                "example": ""
+                                            },
+                                            "QuoteID": {
+                                                "type": "string",
+                                                "example": "2498"
+                                            },
+                                            "CompletedDate": {
+                                                "type": "string",
+                                                "example": "null"
+                                            },
+                                            "CancelledDate": {
+                                                "type": "string",
+                                                "example": "null"
+                                            },
+                                            "AddText1": {
+                                                "type": "string",
+                                                "example": ""
+                                            },
+                                            "AddText2": {
+                                                "type": "string",
+                                                "example": ""
+                                            },
+                                            "AddText3": {
+                                                "type": "string",
+                                                "example": ""
+                                            },
+                                            "AddDate1": {
+                                                "type": "string",
+                                                "example": ""
+                                            },
+                                            "AddDate2": {
+                                                "type": "string",
+                                                "example": ""
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Broker",
+            "description": "Broker"
+        },
+        {
+            "name": "Matter",
+            "description": "Matter"
+        },
+        {
+            "name": "Transaction",
+            "description": "Transaction"
+        }
+    ]
+}
